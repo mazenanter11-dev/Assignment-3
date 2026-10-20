@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A searchable and sortable data table.">
+  <title>Data Table</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Data Table</h1>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="components.html">Components</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="register.html">Register</a></li>
+        <li><a href="data.html" aria-current="page">Data</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <main>
+    <section class="panel" aria-labelledby="people-title">
+      <h2 id="people-title">People</h2>
+
+      <div class="table-controls">
+        <div class="form-row">
+          <label for="search">Search</label>
+          <input type="search" id="search" placeholder="Type a name, age or city...">
+        </div>
+        <button type="button" id="sortName">Sort by name</button>
+        <button type="button" id="sortAge" class="secondary-button">Sort by age</button>
+      </div>
+
+      <p class="result-count" id="count" aria-live="polite"></p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Age</th>
+              <th scope="col">City</th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  
+  <footer>
+    <p>&copy; 2026 My Blog</p>
+  </footer>
+<script>
+    const people = [
+      { name: "Ahmed",   age: 25, city: "Cairo" },
+      { name: "Sara",    age: 22, city: "Alexandria" },
+      { name: "Omar",    age: 31, city: "Giza" },
+      { name: "Mona",    age: 28, city: "Mansoura" },
+      { name: "Youssef", age: 19, city: "Aswan" },
+      { name: "Laila",   age: 35, city: "Cairo" },
+      { name: "Khaled",  age: 27, city: "Tanta" }
+    ];
+
+    let view = [...people];
+    const tbody = document.getElementById("tbody");
+    const search = document.getElementById("search");
+    const count = document.getElementById("count");
+
+    function render(list) {
+      tbody.innerHTML = "";
+      list.forEach(function (p) {
+        const tr = document.createElement("tr");
+        [p.name, p.age, p.city].forEach(function (value) {
+          const td = document.createElement("td");
+          td.textContent = value;
+          tr.appendChild(td);
+        });
+        tbody.appendChild(tr);
+      });
+      count.textContent = list.length
+        ? "Showing " + list.length + " of " + people.length + " people."
+        : "No results found.";
+    }
+
+    function applySearch() {
+      const q = search.value.trim().toLowerCase();
+      view = people.filter(function (p) {
+        return p.name.toLowerCase().includes(q) ||
+               String(p.age).includes(q) ||
+               p.city.toLowerCase().includes(q);
+      });
+      render(view);
+    }
+
+    search.addEventListener("input", applySearch);   // filters while typing
+
+    document.getElementById("sortName").addEventListener("click", function () {
+      view.sort((a, b) => a.name.localeCompare(b.name));
+      render(view);
+    });
+
+    document.getElementById("sortAge").addEventListener("click", function () {
+      view.sort((a, b) => a.age - b.age);
+      render(view);
+    });
+
+    render(view);
+  </script>
+
+</body>
+</html>

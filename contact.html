@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact My Blog using the contact form.">
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Contact Us</h1>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="components.html">Components</a></li>
+        <li><a href="contact.html" aria-current="page">Contact Us</a></li>
+        <li><a href="register.html">Register</a></li>
+        <li><a href="data.html">Data</a></li>
+        
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="panel">
+      <h2>Send a Message</h2>
+      <p>Fields marked with * are required.</p>
+      <form action="#" method="get">
+        <div class="form-row">
+          <label for="name">Name *</label>
+          <input type="text" id="name" name="name" autocomplete="name" required>
+        </div>
+
+        <div class="form-row">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" autocomplete="email" required>
+        </div>
+
+        <div class="form-row">
+          <label for="age">Age</label>
+          <input type="number" id="age" name="age" min="1" max="120">
+        </div>
+
+        <div class="form-row">
+          <label for="date">Preferred Date</label>
+          <input type="date" id="date" name="date">
+        </div>
+
+        <fieldset>
+          <legend>Preferred contact method</legend>
+          <label class="choice" for="byEmail">
+            <input type="radio" id="byEmail" name="contact" value="email">
+            Email
+          </label>
+          <label class="choice" for="byPhone">
+            <input type="radio" id="byPhone" name="contact" value="phone">
+            Phone
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Interests</legend>
+          <label class="choice" for="news">
+            <input type="checkbox" id="news" name="interests" value="news">
+            News
+          </label>
+          <label class="choice" for="offers">
+            <input type="checkbox" id="offers" name="interests" value="offers">
+            Offers
+          </label>
+        </fieldset>
+
+        <div class="form-row">
+          <label for="topic">Topic</label>
+          <select id="topic" name="topic">
+            <option value="">-- Select --</option>
+            <option value="support">Support</option>
+            <option value="sales">Sales</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label for="message">Message *</label>
+          <textarea id="message" name="message" rows="6" required></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit">Send</button>
+          <button type="reset" class="secondary-button">Clear Form</button>
+        </div>
+      </form>
+    </section>
+
+  
+  </main>
+
+  <footer>
+    <p>&copy; 2026 My Blog</p>
+  </footer>
+</body>
+</html>

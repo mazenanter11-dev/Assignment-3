@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Component library: buttons, forms, cards, alerts, and a CSS-only modal.">
+  <title>Components</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Components</h1>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="components.html" aria-current="page">Components</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="register.html">Register</a></li>
+        <li><a href="data.html">Data</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="panel" aria-labelledby="buttons-title">
+      <h2 id="buttons-title">Buttons</h2>
+      <div class="form-actions">
+        <button type="button">Primary</button>
+        <button type="button" class="secondary-button">Secondary</button>
+        <button type="button" disabled>Disabled</button>
+        <a class="button" href="#buttons-title">Link button</a>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="cards-title">
+      <h2 id="cards-title">Cards</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Mobile</h3>
+          <p>One column on small screens.</p>
+        </article>
+        <article class="card">
+          <h3>Tablet</h3>
+          <p>Two columns from 600px.</p>
+        </article>
+        <article class="card">
+          <h3>Desktop</h3>
+          <p>Three columns from 900px.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="alert-title">
+      <h2 id="alert-title">Alert / Notification</h2>
+      <div class="alert alert-success" role="status">
+        <strong>Success!</strong> Your changes have been saved.
+      </div>
+      <div class="alert alert-info" role="status">
+        <strong>Info:</strong> A new version is available.
+      </div>
+      <div class="alert" role="status">
+        <strong>Warning:</strong> Your session will expire soon.
+      </div>
+      <div class="alert alert-error" role="alert">
+        <strong>Error:</strong> Something went wrong. Please try again.
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="modal-demo-title">
+      <h2 id="modal-demo-title">CSS-only Modal</h2>
+      <p>Opens and closes with a hidden checkbox, no JavaScript.</p>
+      <input class="modal-toggle" type="checkbox" id="modal-toggle">
+      <label class="button" for="modal-toggle">Open Modal</label>
+      <div class="modal-overlay">
+        <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+          <h2 id="modal-title">Welcome!</h2>
+          <p>This modal uses CSS only.</p>
+          <label class="button modal-close" for="modal-toggle">Close</label>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 My Blog</p>
+  </footer>
+</body>
+</html>
